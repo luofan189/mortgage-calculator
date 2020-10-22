@@ -24,6 +24,7 @@ export class MortgageCalculatorComponent implements OnInit {
       required: true,
       min: 5000,
       max: 1000000000,
+      step: 5000,
       tooltip: 'The total mortgage amount, between 5000 and 1000000000'
     }),
     new NumberInput({
@@ -31,8 +32,9 @@ export class MortgageCalculatorComponent implements OnInit {
       label: 'Interest Rate (annual):',
       defaultValue: 0.05,
       required: true,
-      min: 0,
+      min: 0.01,
       max: 0.99,
+      step: 0.001,
       tooltip: 'The annual interest rate, must be less than 1'
     }),
     new DropdownInput({
@@ -89,6 +91,7 @@ export class MortgageCalculatorComponent implements OnInit {
       required: true,
       min: 0,
       max: 50000,
+      step: 1000,
       tooltip: 'The prepayment amount, between 0 and 50000'
     }),
     new DropdownInput({
@@ -110,6 +113,8 @@ export class MortgageCalculatorComponent implements OnInit {
       required: true,
       tooltip: 'When do you want to start the prepayment',
       min: 1,
+      max: 1000,
+      step: 1
     }),
   ];
 

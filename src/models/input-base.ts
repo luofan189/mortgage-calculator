@@ -6,6 +6,7 @@ export class InputBase<T> {
   defaultValue: T;
   min: number;
   max: number;
+  step: number;
   required: boolean;
   type: string;
   controlType: string;
@@ -26,6 +27,7 @@ export class InputBase<T> {
     controlType?: string;
     min?: number;
     max?: number;
+    step?: number;
     options?: {key: string | number, value: string}[];
   } = {}) {
     this.key = options.key || '';
@@ -39,5 +41,6 @@ export class InputBase<T> {
     this.options = options.options || [];
     this.min = options.min || -Infinity;
     this.max = options.max || Infinity;
+    this.step = options.step || 1;
   }
 }

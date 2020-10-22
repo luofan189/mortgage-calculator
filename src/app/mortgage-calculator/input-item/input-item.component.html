@@ -10,7 +10,7 @@
       <div [ngSwitch]="input.controlType" fxLayout="column" fxFlex>
         <input *ngSwitchCase="'text'" [formControlName]="input.key" [id]="input.key" [type]="input.controlType" />
 
-        <input *ngSwitchCase="'number'" [formControlName]="input.key" [id]="input.key" [type]="input.controlType" />
+        <input *ngSwitchCase="'number'" [step]="input.step" [min]="input.min" [max]="input.max" [formControlName]="input.key" [id]="input.key" [type]="input.controlType" />
 
         <select *ngSwitchCase="'dropdown'" [formControlName]="input.key" [id]="input.key">
           <option *ngFor="let option of input.options" [value]="option.key">
