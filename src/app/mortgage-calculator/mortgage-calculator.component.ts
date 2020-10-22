@@ -87,9 +87,9 @@ export class MortgageCalculatorComponent implements OnInit {
       label: 'Prepayment Amount:',
       defaultValue: 10000,
       required: true,
-      min: 1000,
+      min: 0,
       max: 50000,
-      tooltip: 'The prepayment amount, between 1000 and 50000'
+      tooltip: 'The prepayment amount, between 0 and 50000'
     }),
     new DropdownInput({
       key: 'prepayment-frequency',
