@@ -47,11 +47,13 @@ export class MortgageCalculateService {
 
     // for term related data
     let paidInterestsForTerm = 0;
+    let paidPrincipleForTerm = 0;
     for (let i = 0; i < mortgageSchedule.schedules.length; i++) {
       if (i > input.term * 12 - 1) {
         break;
       }
 
+      paidPrincipleForTerm += mortgageSchedule.schedules[i].paidPrincipleAmount;
       paidInterestsForTerm += mortgageSchedule.schedules[i].paidInterestAmount;
     }
 
@@ -60,7 +62,7 @@ export class MortgageCalculateService {
         numOfPayments: input.term * 12,
         payment: payAmount,
         prepayment: input.prepayment,
-        principlePayments: input.prepayment + payAmount * input.term * 12 - paidInterestsForTerm,
+        principlePayments: paidPrincipleForTerm,
         interestPayments: paidInterestsForTerm,
       }),
       amortizationPayments: new MortgagePayment({
