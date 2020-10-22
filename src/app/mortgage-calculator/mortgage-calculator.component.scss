@@ -1,0 +1,22 @@
+.mortgage-calculator {
+  padding: 32px 64px;
+  font-size: 16px;
+
+  @media(max-width: 576px) {
+    padding: 16px 24px;
+  }
+
+  .title {
+    h1 {
+      font-size: 32px;
+    }
+  }
+
+  .subtitle {
+    padding: 24px 0;
+  }
+
+  .padding {
+    padding: 12px 0;
+  }
+}

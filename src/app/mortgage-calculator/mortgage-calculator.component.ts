@@ -12,4 +12,6 @@ export class MortgageCalculatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCalculate(): void {
+  }
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { MortgageCalculatorComponent } from './mortgage-calculator/mortgage-calculator/mortgage-calculator.component';
+import { MortgageCalculatorComponent } from './mortgage-calculator/mortgage-calculator.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [

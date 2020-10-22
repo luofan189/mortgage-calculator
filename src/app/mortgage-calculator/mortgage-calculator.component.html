@@ -1,0 +1,45 @@
+<div class="mortgage-calculator">
+  <div class="title">
+    <h1>Mortgage Calculator</h1>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="subtitle">
+    <p>
+      This calculator determines your mortgage payment and provides you with a mortgage payment schedule. The calculator also shows how much money and how many years you can save by making prepayments.
+    </p>
+    <p>
+      To help determine whether or not you qualify for a home mortgage based on income and expenses, visit the Mortgage Qualifier Tool.
+    </p>
+    <p>
+      <span class="highlight">Note:</span> As of July 9, 2012, the maximum amortization period for mortgages with less than a 20 percent down payment is <span class="highlight">25 years</span>.
+    </p>
+  </div>
+
+
+  <div class="padding" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
+    <app-payment-plan-form fxFlex class="padding"></app-payment-plan-form>
+    <app-prepayment-plan-form fxFlex class="padding"></app-prepayment-plan-form>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="onCalculate()">Calculate</button>
+
+  <div class="results">
+    <div fxLayout="row">
+      <app-calculation-summary fxFlex></app-calculation-summary>
+    </div>
+
+    <div fxLayout="row">
+      <app-mortgage-summary fxFlex></app-mortgage-summary>
+    </div>
+
+    <div fxLayout="row">
+      <app-payment-diagram fxFlex></app-payment-diagram>
+    </div>
+
+    <div fxLayout="row">
+      <app-payment-schedule fxFlex></app-payment-schedule>
+    </div>
+  </div>
+
+</div>
+
