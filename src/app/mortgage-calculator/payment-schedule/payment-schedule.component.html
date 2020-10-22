@@ -1,1 +1,26 @@
-<p>payment-schedule works!</p>
+<div class="payment-schedule">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h1>{{title}}</h1>
+  </div>
+
+  <div fxLayout="row">
+    <table>
+      <tr>
+        <th>Period</th>
+        <th>Principle Payment</th>
+        <th>Interest Payment</th>
+        <th fxHide.xs>Total Payment</th>
+        <th fxHide.xs>Ending Balance</th>
+      </tr>
+
+      <tr *ngFor="let schedule of schedules; trackBy: getIndex">
+        <td>Month#{{schedule.period + 1}}</td>
+        <td>{{schedule.paidPrincipleAmount | money}}</td>
+        <td>{{schedule.paidInterestAmount | money}}</td>
+        <td fxHide.xs>{{schedule.totalPayment | money}}</td>
+        <td fxHide.xs>{{schedule.balance | money}}</td>
+      </tr>
+
+    </table>
+  </div>
+</div>

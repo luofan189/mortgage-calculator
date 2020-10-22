@@ -1,0 +1,24 @@
+.input-item {
+  padding: 8px 12px;
+
+
+  label {
+    margin-right: 12px;
+    @media(max-width: 576px) {
+      margin-bottom: 8px;
+    }
+  }
+
+  input {
+    padding: 8px 4px;
+  }
+
+  select {
+    padding: 8px 4px;
+  }
+
+  .error-msg {
+    padding-top: 10px;
+    color: red;
+  }
+}

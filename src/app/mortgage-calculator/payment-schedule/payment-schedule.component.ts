@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MortgageScheduleItem } from 'src/models/mortgage-schedule-item';
 
 @Component({
   selector: 'app-payment-schedule',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentScheduleComponent implements OnInit {
 
+  @Input()
+  title = 'Payment Schedule';
+
+  @Input()
+  schedules: MortgageScheduleItem[];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getIndex(item: MortgageScheduleItem, index: number): string {
+    return `${item.period} + ${index}`;
+  }
 }

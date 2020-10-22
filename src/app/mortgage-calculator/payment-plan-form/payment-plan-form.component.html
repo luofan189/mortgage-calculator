@@ -1,1 +1,10 @@
-<p>payment-plan-form works!</p>
+<div class="payment-plan-form">
+  <div fxLayout="row" class="title">
+    <h2>{{title}}</h2>
+  </div>
+
+  <div *ngFor="let input of inputs">
+    <app-input-item [input]="input" [form]="form"></app-input-item>
+  </div>
+
+</div>

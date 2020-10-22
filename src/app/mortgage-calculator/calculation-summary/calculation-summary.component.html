@@ -1,1 +1,54 @@
-<p>calculation-summary works!</p>
+<div class="calculation-summary">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <h1>{{title}}</h1>
+  </div>
+
+  <div fxLayout="row">
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>Term</th>
+        <th>Amortization Period</th>
+      </tr>
+
+      <tr>
+        <td><app-label-info [title]="'Number of Payments'"></app-label-info></td>
+        <td>{{summary.termPayments.numOfPayments}}</td>
+        <td *ngIf="summary.prepayment > 0">{{schedules.length - 1}} + 1 final payment of {{schedules[schedules.length - 1].totalPayment | money}}</td>
+        <td *ngIf="summary.prepayment <= 0">{{schedules.length }}</td>
+      </tr>
+
+      <tr>
+        <td><app-label-info [title]="'Mortgage Payment'"></app-label-info></td>
+        <td>{{summary.termPayments.payment | money}}</td>
+        <td>{{summary.amortizationPayments.payment | money}}</td>
+      </tr>
+
+      <tr>
+        <td><app-label-info [title]="'Prepayment'"></app-label-info></td>
+        <td>{{summary.termPayments.prepayment | money}}</td>
+        <td>{{summary.amortizationPayments.prepayment | money}}</td>
+      </tr>
+
+      <tr>
+        <td><app-label-info [title]="'Principle Payments'"></app-label-info></td>
+        <td>{{summary.termPayments.principlePayments | money}}</td>
+        <td>{{summary.amortizationPayments.principlePayments | money}}</td>
+      </tr>
+
+      <tr>
+        <td><app-label-info [title]="'Interest Payments'"></app-label-info></td>
+        <td>{{summary.termPayments.interestPayments | money}}</td>
+        <td>{{summary.amortizationPayments.interestPayments | money}}</td>
+      </tr>
+
+      <tr>
+        <td><app-label-info [title]="'Total Cost'"></app-label-info></td>
+        <td>{{summary.termPayments.totalCosts | money}}</td>
+        <td>{{summary.amortizationPayments.totalCosts | money}}</td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>

@@ -1,1 +1,22 @@
-<p>mortgage-summary works!</p>
+<div class="mortgage-summary">
+  <h1>Mortgage Summary</h1>
+  <p>Over the {{summary.amortization}}-year amortization period, you will:</p>
+  <ul>
+    <li *ngIf="summary.prepayment > 0">have made {{schedules.length - 1}} monthly (12x per year) payments of {{summary.amortizationPayments.payment  | money}} and 1 final payment of {{schedules[schedules.length - 1].totalPayment | money}}</li>
+    <li *ngIf="summary.prepayment <= 0">have made {{summary.amortization * 12}} monthly (12x per year) payments of {{summary.amortizationPayments.payment  | money}}.</li>
+    <li>have paid {{summary.amortizationPayments.principlePayments | money}} in principal, {{summary.amortizationPayments.interestPayments  | money}} in interest, for a total of {{summary.amortizationPayments.totalCosts  | money}}.</li>
+  </ul>
+
+  <p>Over the {{summary.term}}-year term, you will:</p>
+  <ul>
+    <li>have made {{summary.term * 12}} monthly (12x per year) payments of {{summary.termPayments.payment  | money}}.</li>
+    <li>have paid {{summary.termPayments.principlePayments  | money}} in principal, {{summary.termPayments.interestPayments  | money}} in interest, for a total of {{summary.termPayments.totalCosts  | money}}.</li>
+  </ul>
+
+  <p>At the end of your {{summary.term}}-year term, you will:</p>
+  <ul>
+    <li>have a balance of {{(summary.principle - summary.termPayments.principlePayments)  | money}}.</li>
+  </ul>
+
+</div>
+

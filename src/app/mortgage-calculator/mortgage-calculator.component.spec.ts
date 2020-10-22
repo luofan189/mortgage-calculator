@@ -22,4 +22,5 @@ describe('MortgageCalculatorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

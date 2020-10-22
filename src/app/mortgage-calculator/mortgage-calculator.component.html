@@ -15,29 +15,34 @@
     </p>
   </div>
 
+  <form [formGroup]="form">
+    <div class="padding" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
+      <app-payment-plan-form fxFlex class="padding" [inputs]="paymentPlanInputs" [form]="form"></app-payment-plan-form>
+      <app-prepayment-plan-form fxFlex class="padding" [inputs]="prepaymentPlanInputs" [form]="form"></app-prepayment-plan-form>
+    </div>
 
-  <div class="padding" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="24px">
-    <app-payment-plan-form fxFlex class="padding"></app-payment-plan-form>
-    <app-prepayment-plan-form fxFlex class="padding"></app-prepayment-plan-form>
-  </div>
+    <button [disabled]="!form.valid" mat-raised-button color="primary" (click)="onCalculate()">Calculate</button>
+  </form>
 
-  <button mat-raised-button color="primary" (click)="onCalculate()">Calculate</button>
-
-  <div class="results">
+  <div class="results" *ngIf="mortgageResult">
     <div fxLayout="row">
-      <app-calculation-summary fxFlex></app-calculation-summary>
+      <app-calculation-summary fxFlex
+        [schedules]="mortgageResult.mortgageSchedules.schedules"
+        [summary]="mortgageResult.mortgageCalculationSummary"></app-calculation-summary>
     </div>
 
     <div fxLayout="row">
-      <app-mortgage-summary fxFlex></app-mortgage-summary>
+      <app-mortgage-summary fxFlex
+        [schedules]="mortgageResult.mortgageSchedules.schedules"
+        [summary]="mortgageResult.mortgageCalculationSummary"></app-mortgage-summary>
     </div>
 
-    <div fxLayout="row">
+    <!-- <div fxLayout="row">
       <app-payment-diagram fxFlex></app-payment-diagram>
-    </div>
+    </div> -->
 
     <div fxLayout="row">
-      <app-payment-schedule fxFlex></app-payment-schedule>
+      <app-payment-schedule fxFlex [schedules]="mortgageResult.mortgageSchedules.schedules"></app-payment-schedule>
     </div>
   </div>
 

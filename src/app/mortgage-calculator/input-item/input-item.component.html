@@ -1,1 +1,30 @@
-<p>input-item works!</p>
+<div class="input-item">
+  <div [formGroup]="form">
+
+    <div fxLayout="row" fxLayout.xs="column">
+      <label [attr.for]="input.key" fxLayout="column" fxFlex="33">
+        <app-label-info [title]="input.label" [tooltip]="input.tooltip"></app-label-info>
+      </label>
+
+      <!-- different input type -->
+      <div [ngSwitch]="input.controlType" fxLayout="column" fxFlex>
+        <input *ngSwitchCase="'text'" [formControlName]="input.key" [id]="input.key" [type]="input.controlType" />
+
+        <input *ngSwitchCase="'number'" [formControlName]="input.key" [id]="input.key" [type]="input.controlType" />
+
+        <select *ngSwitchCase="'dropdown'" [formControlName]="input.key" [id]="input.key">
+          <option *ngFor="let option of input.options" [value]="option.key">
+            {{option.value}}
+          </option>
+        </select>
+
+        <div class="error-msg" *ngIf="form.controls[input.key].errors?.min">{{input.label}} value is {{form.controls[input.key].errors?.min.actual}} which needs be greater than {{form.controls[input.key].errors?.min.min}}</div>
+        <div class="error-msg" *ngIf="form.controls[input.key].errors?.max">{{input.label}} value is {{form.controls[input.key].errors?.max.actual}} which needs be smaller than {{form.controls[input.key].errors?.max.max}}</div>
+        <div class="error-msg" *ngIf="form.controls[input.key].errors?.required">{{input.label}} is required</div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

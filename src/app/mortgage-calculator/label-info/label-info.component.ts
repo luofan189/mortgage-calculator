@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-label-info',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabelInfoComponent implements OnInit {
 
+  @Input()
+  title: string;
+
+  @Input()
+  tooltip: string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
